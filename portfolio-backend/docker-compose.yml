@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: $PORTFOLIO_DB_USER
+      POSTGRES_PASSWORD: $PORTFOLIO_DB_PASSWORD
+      POSTGRES_DB: $PORTFOLIO_DB_NAME
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
